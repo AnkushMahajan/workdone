@@ -11,7 +11,7 @@ import { User } from '../../models/user'
   templateUrl: 'profile-set-up.html'
 })
 
-export class ProfileSetUp {
+export class ProfileSetup {
 
   constructor(private formBuilder: FormBuilder){}
 

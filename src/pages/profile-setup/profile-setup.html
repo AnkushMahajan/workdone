@@ -7,13 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  Time to set up your work profile!!
-  <p>
-    Create a detailed profile, for others to know you!!
-  </p>
+  <p>Time to set up your work profile!!</p>
+  <p>Create your user profile<i class="fa fa-meetup"></i></p>
+
   <form [formGroup]="todo" (ngSubmit)="logForm()">
     <ion-item>
-      <ion-label floating>First Name</ion-label>
+      <ion-label floating>First Name </ion-label>
       <ion-input type="text" formControlName="firstName"></ion-input>
     </ion-item>
     <ion-item>

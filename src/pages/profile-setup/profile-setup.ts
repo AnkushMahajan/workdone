@@ -8,7 +8,7 @@ import {Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../models/user'
 
 @Component({
-  templateUrl: 'profile-set-up.html'
+  templateUrl: 'profile-setup.html'
 })
 
 export class ProfileSetup {

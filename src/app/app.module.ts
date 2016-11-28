@@ -3,13 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ProfileSetUp } from '../pages/profile-set-up/profile-set-up'
+import { ProfileSetup } from '../pages/profile-setup/profile-setup'
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ProfileSetUp
+    ProfileSetup
   ],
   imports: [
     FormsModule,
@@ -19,7 +19,7 @@ import { ProfileSetUp } from '../pages/profile-set-up/profile-set-up'
   entryComponents: [
     MyApp,
     HomePage,
-    ProfileSetUp
+    ProfileSetup
   ],
   providers: []
 })

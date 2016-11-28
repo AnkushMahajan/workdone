@@ -1,0 +1,34 @@
+@font-face {
+    font-family:'gillsanslight';
+    src: url('#{$assetFont}/gillsans/gillsans-light.eot');
+    src: url('#{$assetFont}/gillsans/gillsans-light.woff') format('woff'),
+         url('#{$assetFont}/gillsans/gillsans-light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family:'gillsans';
+    src: url('#{$assetFont}/gillsans/gillsans.eot');
+    src: url('#{$assetFont}/gillsans/gillsans.woff') format('woff'),
+         url('#{$assetFont}/gillsans/gillsans.ttf') format('truetype'),
+         url('#{$assetFont}/gillsans/gillsans.svg') format('svg');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family:'fontawesome';
+    src: url('#{$assetFont}/fontawesome/fontawesome-webfont.eot');
+    src: url('#{$assetFont}/fontawesome/fontawesome-webfont.woff') format('woff'),
+        url('#{$assetFont}/fontawesome/fontawesome-webfont.ttf') format('truetype'),
+        url('#{$assetFont}/fontawesome/fontawesome-webfont.svg') format('svg');
+        font-weight: lighter;
+        font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family:si;
+        src: url(#{$assetFont}/socicon.svg) format(svg);
+    }
+}
+
+

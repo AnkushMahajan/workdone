@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Profile set up
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  Time to set up your work profile!!
+  <p>
+    Create a detailed profile, for others to know you!!
+  </p>
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Work Description</ion-label>
+      <ion-textarea type="text" formControlName="workDesc"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+  </form>
+</ion-content>

@@ -8,10 +8,10 @@ import {Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../models/user'
 
 @Component({
-  templateUrl: 'profile-setup.html'
+  templateUrl: 'profile.html'
 })
 
-export class ProfileSetup {
+export class Profile {
 
   constructor(private formBuilder: FormBuilder){}
 

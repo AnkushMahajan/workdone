@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 //page to route to on click of the button
-import { ProfileSetup } from '../profile-setup/profile-setup'
 
 @Component({
   selector: 'page-home',
@@ -16,7 +15,7 @@ export class HomePage {
   }
 
   private navProfile() {
-    this.navCtrl.push(ProfileSetup);
+   
   }
 
   private socialLogin() {

@@ -1,0 +1,57 @@
+// Hide elements at different
+@mixin hidden-between($selector, $min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    #{$selector} {
+      display: none;
+    }
+  }
+}
+
+@mixin hidden-after($selector, $breakpoint) {
+  @media (min-width: $breakpoint) {
+    #{$selector} {
+      display: none;
+    }
+  }
+}
+@mixin hidden-before($selector, $breakpoint) {
+  @media (max-width: $breakpoint) {
+    #{$selector} {
+      display: none;
+    }
+  }
+}
+
+// Hide at specific size
+// when attribute
+@include hidden-before('[hidden-xs]', $grid-responsive-sm-break);
+@include hidden-between('[hidden-sm]', $grid-responsive-sm-break, $grid-responsive-md-break);
+@include hidden-between('[hidden-md]', $grid-responsive-md-break, $grid-responsive-lg-break);
+@include hidden-after('[hidden-lg]', $grid-responsive-lg-break);
+// when class
+@include hidden-before('.hidden-xs', $grid-responsive-sm-break);
+@include hidden-between('.hidden-sm', $grid-responsive-sm-break, $grid-responsive-md-break);
+@include hidden-between('.hidden-md', $grid-responsive-md-break, $grid-responsive-lg-break);
+@include hidden-after('.hidden-lg', $grid-responsive-lg-break);
+
+// Hide for all sizes larger than breakpoint
+// when attribute
+@include hidden-after('[hidden-after-sm]', $grid-responsive-sm-break);
+@include hidden-after('[hidden-after-md]', $grid-responsive-md-break);
+@include hidden-after('[hidden-after-lg]', $grid-responsive-lg-break);
+// when class
+@include hidden-after('.hidden-after-sm', $grid-responsive-sm-break);
+@include hidden-after('.hidden-after-md', $grid-responsive-md-break);
+@include hidden-after('.hidden-after-lg', $grid-responsive-lg-break);
+
+// Hide for all sizes smaller than breakpoint
+// when attribute
+@include hidden-before('[hidden-before-sm]', $grid-responsive-sm-break);
+@include hidden-before('[hidden-before-md]', $grid-responsive-md-break);
+@include hidden-before('[hidden-before-lg]', $grid-responsive-lg-break);
+// when class
+@include hidden-before('.hidden-before-sm', $grid-responsive-sm-break);
+@include hidden-before('.hidden-before-md', $grid-responsive-md-break);
+@include hidden-before('.hidden-before-lg', $grid-responsive-lg-break);
+
+

@@ -1,0 +1,8 @@
+.btn{
+	&.btn-primary{
+		&:hover{
+			background: #4abdac !important;
+			color:white !important;
+		}
+	}
+}

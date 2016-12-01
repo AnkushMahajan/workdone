@@ -1,8 +1,6 @@
-/**
- * Created by amahajan on 14/10/2016.
- */
 import { Component } from '@angular/core';
-import {Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
+import { NavController, NavParams } from 'ionic-angular';
 
 //import user model to bind our user form data
 import { User } from '../../models/user'
@@ -13,12 +11,23 @@ import { User } from '../../models/user'
 
 export class Profile {
 
-  constructor(private formBuilder: FormBuilder){}
+  public name: string
+  public email: string
+  public workDesc: string
+  public photoURL: string
+
+  constructor(private formBuilder: FormBuilder, private navParams: NavParams, private navCtrl: NavController){
+
+    if(navParams){
+      this.name = navParams.get('name')
+      this.email = navParams.get('email')
+      this.photoURL = navParams.get('photoURL')
+    }
+  }
 
   private ionViewWillLoad() {
     this.todo = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: [''],
+      name: ['', Validators.required],
       workDesc: [''],
       email: ['', Validators.required],
     });

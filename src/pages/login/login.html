@@ -1,12 +1,12 @@
-  <ion-header>
-    <ion-navbar>
-      <ion-title><h1>Login</h1></ion-title>
-    </ion-navbar>
-  </ion-header>
+<ion-header>
+  <ion-navbar>
+    <ion-title><h1>Login</h1></ion-title>
+  </ion-navbar>
+</ion-header>
 
-        <span class="logo">
-          <img src="./assets/images/logo.png" />
-        </span>
+ <span class="logo">
+   <img src="./assets/images/logo.png" />
+ </span>
 
 <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" controls preload="auto" ID="bgvid" webkit-playsinline autoplay muted loop>
 <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
@@ -18,7 +18,7 @@
     <ion-grid class="login-buttons">
       <ion-row>
         <ion-col width-3>
-          <button ion-fab>
+          <button ion-fab (click)="facebookSignIn()">
             <span>
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </span>
@@ -26,7 +26,7 @@
         </ion-col>
 
         <ion-col width-3>
-          <button ion-fab>
+          <button ion-fab (click)="googleSignIn()">
             <span>
               <i class="fa fa-google" aria-hidden="true"></i>
             </span>
@@ -44,5 +44,4 @@
       </ion-row>
     </ion-grid>
   </ion-content>
-
 

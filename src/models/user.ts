@@ -3,14 +3,13 @@
  */
 export class User {
   public id: number;
-  public lastName: string;
-  public firstName: string;
+  public name: string;
   public workDesc: string;
   public email: string;
+  public photoURL: string;
 
   constructor(userObj: Object){
-    this.lastName = userObj.lastName
-    this.firstName = userObj.firstName
+    this.name = userObj.name
     this.workDesc = userObj.workDesc
     this.email = userObj.email
   }

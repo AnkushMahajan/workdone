@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 import { Login } from '../pages/login/login';
-import { HomePage } from '../pages/home/home';
 import firebase from 'firebase';
 
 

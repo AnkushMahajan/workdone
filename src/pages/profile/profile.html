@@ -1,15 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Profile
+      <h1></h1>Profile</h1>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
+<side-menu></side-menu>
 
 <ion-content class="home">
-
-  <p>Time to set up your work profile!!</p>
   <p>Create your user profile</p>
 
   <form [formGroup]="todo" (ngSubmit)="logForm()">
@@ -25,7 +24,7 @@
       <ion-label floating>email</ion-label>
       <ion-input formControlName="email" [(ngModel)]="email"></ion-input>
     </ion-item>
-    <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+    <button ion-button type="submit" [disabled]="!todo.valid">Save</button>
   </form>
 
 </ion-content>

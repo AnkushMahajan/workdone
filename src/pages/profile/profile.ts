@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
+import { SideMenu } from '../../common/components/side-menu/side-menu';
 
 //import user model to bind our user form data
 import { User } from '../../models/user'
 
+
 @Component({
-  templateUrl: 'profile.html'
+  templateUrl: 'profile.html',
+  directives: [SideMenu],
 })
 
 export class Profile {
@@ -16,7 +19,11 @@ export class Profile {
   public workDesc: string
   public photoURL: string
 
-  constructor(private formBuilder: FormBuilder, private navParams: NavParams, private navCtrl: NavController){
+  constructor(
+      private formBuilder: FormBuilder,
+      private navParams: NavParams,
+      private sideMenu: SideMenu,
+      private navCtrl: NavController){
 
     if(navParams){
       this.name = navParams.get('name')

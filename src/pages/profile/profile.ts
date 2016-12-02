@@ -31,6 +31,7 @@ export class Profile {
       this.email = navParams.get('email')
       this.photoURL = navParams.get('photoURL')
       this.uid = navParams.get('uid')
+      this.workDesc = navParams.get('workDesc')
     }
     this.firebaseDB = firebase.database()
   }
@@ -45,10 +46,14 @@ export class Profile {
   private logForm(){
     let userCreated = new User(this.todo.value)
     userCreated.photoURL = this.photoURL
-    let newPostKey = this.firebaseDB.ref().child('users').push().key
+    userCreated.uid = this.uid
     let updates = {}
-    updates['/users/' + this.uid + '/' + newPostKey] = userCreated;
-    this.firebaseDB.ref().update(updates);
+    updates['/users/' + this.uid] = userCreated;
+    this.firebaseDB.ref().update(updates).then(result => {
+      console.log(result);
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }
 

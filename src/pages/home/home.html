@@ -1,12 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      WorkDone
+      Welcome {{name}}
     </ion-title>
+    <button royal light (click)="goToProfile()" name="profile-button">
+      <!-- <ion-icon name="md-contact"></ion-icon> -->
+      <ion-avatar>
+        <img class="user-detail-avatar" src="{{photoURL}}" alt="{{name}}">
+      </ion-avatar>
+
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+<h1> This is a home page</h1>
 </ion-content>
 

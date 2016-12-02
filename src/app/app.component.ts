@@ -6,7 +6,24 @@ import firebase from 'firebase';
 
 
 @Component({
-  template: `<ion-nav [root]="rootPage"></ion-nav>`
+  template: `<ion-menu [content]="mycontent">
+ 
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ 
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+ 
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
   rootPage = Login;

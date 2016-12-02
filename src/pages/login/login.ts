@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Profile } from '../profile/profile';
+import { HomePage } from '../home/home';
 import { Utils } from '../../common/utils'
 
 import firebase from 'firebase';
@@ -20,32 +21,19 @@ export class Login {
   private firebaseDB: any
   private user: any
 
-  private navProfile() {
-    this.navCtrl.push(Profile);
-  }
-
   private googleSignIn() {
-
-    let user = {};
 
     Utils.signInViaGoogle().then( result =>{
       // This gives you a Google Access Token. You can use it to access the Google API.
       let token = result.credential.accessToken;
       // The signed-in user info.
 
-      let userPromise = this.firebaseDB.ref('/users').set(user);
-      userPromise.then(userResult => {
-        // payload should be handled by redux actions
-        this.navCtrl.push(Profile, {
-          email: result.user.email,
-          name: result.user.displayName,
-          photoURL: result.user.photoURL,
-          uid: result.user.uid,
-        });
-      })
+      this.logOrRegister(result);
+
       // ...
     }).catch( error => {
       // Handle Errors here.
+      let user = {}
       user.error = true;
       user.errorCode = error.code;
       user.errorMessage = error.message;
@@ -64,20 +52,12 @@ export class Login {
       let token = result.credential.accessToken;
       // The signed-in user info.
 
-      let user = {}
-      let userPromise = this.firebaseDB.ref('/users').set(user);
-      userPromise.then( userResult => {
-       // payload should be handled by redux actions
-       this.navCtrl.push(Profile, {
-         email: result.user.email,
-         name: result.user.displayName,
-         photoURL: result.user.photoURL,
-         uid: result.user.uid,
-       });
-      })
+      this.logOrRegister(result);
+
       // ...
     }).catch( error => {
       // Handle Errors here.
+      let user = {}
       user.error = true;
       user.errorCode = error.code;
       user.errorMessage = error.message;
@@ -87,6 +67,30 @@ export class Login {
       user.credential = error.credential;
       console.log('error', user);
     })
+  }
+
+  private createUser(userObj): Object {
+    let user = {};
+    user.email = userObj.email;
+    user.name = userObj.displayName;
+    user.photoURL = userObj.photoURL;
+    user.uid = userObj.uid;
+    return user
+  }
+
+  private logOrRegister(result): void {
+    this.firebaseDB.ref('/users/' + result.user.uid).once('value').then( snapshot => {
+      if(snapshot.val()){
+        this.navCtrl.push(HomePage, snapshot.val());
+      }else{
+        let user =this.createUser(result.user)
+        let userPromise = this.firebaseDB.ref('/users/' + result.user.uid).set(user);
+        userPromise.then(userResult => {
+          // payload should be handled by redux actions
+          this.navCtrl.push(Profile, user);
+        })
+      }
+    });
   }
 
 

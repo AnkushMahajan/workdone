@@ -1,32 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Profile
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+  <ion-header>
+    <ion-navbar>
+      <ion-title>
+        Profile
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
 
+  <ion-content class="home">
+    <p>Time to set up your work profile!!</p>
+    <p>Create your user profile</p>
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label floating>Name </ion-label>
+        <ion-input type="text" formControlName="name" [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Work Description</ion-label>
+        <ion-textarea type="text" formControlName="workDesc" [(ngModel)]="workDesc"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>email</ion-label>
+        <ion-input formControlName="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+    </form>
 
-<ion-content class="home">
+  </ion-content>
 
-  <p>Time to set up your work profile!!</p>
-  <p>Create your user profile</p>
-
-  <form [formGroup]="todo" (ngSubmit)="logForm()">
-    <ion-item>
-      <ion-label floating>Name </ion-label>
-      <ion-input type="text" formControlName="name" [(ngModel)]="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Work Description</ion-label>
-      <ion-textarea type="text" formControlName="workDesc" [(ngModel)]="workDesc"></ion-textarea>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>email</ion-label>
-      <ion-input formControlName="email" [(ngModel)]="email"></ion-input>
-    </ion-item>
-    <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
-  </form>
-
-</ion-content>
 

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
+import firebase from 'firebase';
 
 //import user model to bind our user form data
 import { User } from '../../models/user'
 
 @Component({
-  templateUrl: 'profile.html'
+  templateUrl: 'profile.html',
 })
 
 export class Profile {
@@ -15,14 +16,18 @@ export class Profile {
   public email: string
   public workDesc: string
   public photoURL: string
+  public uid: string
+  private firebaseDB: any
 
-  constructor(private formBuilder: FormBuilder, private navParams: NavParams, private navCtrl: NavController){
+  constructor(private formBuilder: FormBuilder, private navParams: NavParams, private navCtrl: NavController, private menuCtrl: MenuController){
 
     if(navParams){
       this.name = navParams.get('name')
       this.email = navParams.get('email')
       this.photoURL = navParams.get('photoURL')
+      this.uid = navParams.get('uid')
     }
+    this.firebaseDB = firebase.database()
   }
 
   private ionViewWillLoad() {
@@ -34,7 +39,11 @@ export class Profile {
   }
   private logForm(){
     let userCreated = new User(this.todo.value)
-    console.log(userCreated);
+    userCreated.photoURL = this.photoURL
+    let newPostKey = this.firebaseDB.ref().child('users').push().key
+    let updates = {}
+    updates['/users/' + this.uid + '/' + newPostKey] = userCreated;
+    this.firebaseDB.ref().update(updates);
   }
 }
 

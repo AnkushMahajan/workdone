@@ -93,5 +93,7 @@ export class Login {
     });
   }
 
-
+  private linkedinSignIn() {
+    console.log('linked in clicked');
+  }
 }

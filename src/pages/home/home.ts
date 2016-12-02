@@ -14,7 +14,10 @@ export class HomePage {
   private name: string
   private photoURL: string
   private email: string
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
 
     if(navParams){
       this.name = navParams.get('name')
@@ -22,9 +25,7 @@ export class HomePage {
       this.photoURL = navParams.get('photoURL')
     }
   }
-
   private goToProfile() {
     this.navCtrl.push(Profile, this.navParams);
   }
-
 }

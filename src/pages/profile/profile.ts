@@ -20,7 +20,11 @@ export class Profile {
   public uid: string
   private firebaseDB: any
 
-  constructor(private formBuilder: FormBuilder, private navParams: NavParams, private navCtrl: NavController, private menuCtrl: MenuController){
+  constructor(
+    private formBuilder: FormBuilder,
+    private navParams: NavParams,
+    private navCtrl: NavController,
+    private menuCtrl: MenuController){
 
     if(navParams){
       this.name = navParams.get('name')

@@ -1,3 +1,7 @@
+ <span class="logo">
+   <img src="./assets/images/logo.png" />
+ </span>
+
 <video poster="./asssets/images/eagle.jpg" controls preload="auto" ID="bgvid" webkit-playsinline autoplay muted loop>
   <source src="./assets/videos/eagle.webm" type="video/webm">
   <source src="./assets/videos/eagle.mp4" type="video/mp4">
@@ -7,7 +11,7 @@
     <ion-grid class="login-buttons">
       <ion-row>
         <ion-col width-3>
-          <button ion-fab (click)="facebookSignIn()">
+          <button ion-fab class="facebook" (click)="facebookSignIn()">
             <span>
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </span>
@@ -15,7 +19,7 @@
         </ion-col>
 
         <ion-col width-3>
-          <button ion-fab (click)="googleSignIn()">
+          <button ion-fab class="google" (click)="googleSignIn()">
             <span>
               <i class="fa fa-google" aria-hidden="true"></i>
             </span>
@@ -23,7 +27,7 @@
         </ion-col>
 
         <ion-col width-3>
-          <button ion-fab>
+          <button ion-fab class="linkedin" (click)="linkedinSignIn()">
             <span>
               <i class="fa fa-linkedin" aria-hidden="true"></i>
             </span>

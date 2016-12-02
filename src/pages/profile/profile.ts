@@ -6,8 +6,9 @@ import firebase from 'firebase';
 //import user model to bind our user form data
 import { User } from '../../models/user'
 
+
 @Component({
-  templateUrl: 'profile.html',
+  templateUrl: 'profile.html'
 })
 
 export class Profile {
